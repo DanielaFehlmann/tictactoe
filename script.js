@@ -1,6 +1,7 @@
 let fields = [];
 let currentShape = 'cross'; //zu Beginn hat die Variable currentShape den Wert "cross"
 let gameover = false;
+let winner;
 
 function fillShape(x) { //x = 0,1,2,3,4,5,6,7,8
   if (!fields[x] && !gameover) { // wenn fields[x] nicht existiert und gameover nicht false (sondern true) ist, ( -> Rufzeichen = Gegenteil)
@@ -43,14 +44,20 @@ function draw() {
 
 
 function checkForWin() {
-  let winner;
-  horizontalLines(winner);
-  verticalLines(winner);
-  diagonalLines(winner);
+  horizontalLines();
+  verticalLines();
+  diagonalLines();
+  if (
+    fields[0] && fields[1] && fields[2] && fields[3] && fields[4] && fields[5] && fields[6] && fields[7] && fields[8]) {
+    gameIsOver();
+  }
+  if (winner) {
+    gameIsOver();
+  };
 }
 
 
-function horizontalLines (winner) {
+function horizontalLines () {
   if (fields[0] == fields[1] && fields[1] == fields[2] && fields[0]) {
     winner = fields[0];
     document.getElementById('line0').style.transform = 'scaleX(1)';
@@ -63,13 +70,10 @@ function horizontalLines (winner) {
     winner = fields[6];
     document.getElementById('line2').style.transform = 'scaleX(1)';
   }
-  if (winner) {
-    gameIsOver();
-  };
 }
 
 
-function verticalLines (winner) {
+function verticalLines () {
   if (fields[0] == fields[3] && fields[3] == fields[6] && fields[0]) {
     winner = fields[0];
     document.getElementById('line3').style.transform = 'rotate(90deg) scaleX(1)';
@@ -82,13 +86,10 @@ function verticalLines (winner) {
     winner = fields[2];
     document.getElementById('line5').style.transform = 'rotate(90deg) scaleX(1)';
   }
-  if (winner) {
-    gameIsOver();
-  };
 }
 
 
-function diagonalLines (winner) {
+function diagonalLines () {
   if (fields[0] == fields[4] && fields[4] == fields[8] && fields[0]) {
     winner = fields[0];
     document.getElementById('line6').style.transform = 'rotate(45deg) scaleX(1.3)';
@@ -97,24 +98,22 @@ function diagonalLines (winner) {
     winner = fields[2];
     document.getElementById('line7').style.transform = 'rotate(-45deg) scaleX(1.3)';
   }
-  if (winner) {
-    gameIsOver();
-  };
 }
 
 
 function gameIsOver() {
   gameover = true;
-  // setTimeout(function () {
-  //   document.getElementById('gameover').classList.remove('d-none');
-  //   document.getElementById('restart').classList.remove('d-none');
-  // }, 700);
+   setTimeout(function () {
+     document.getElementById('gameover').classList.remove('d-none');
+     document.getElementById('restart').classList.remove('d-none');
+   }, 800);
 }
 
 
 function restart() {
   fields = [];
   gameover = false;
+  winner = '';
   switchToPlayer1();
   resetLines();
   resetImages();

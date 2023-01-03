@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="img/xmark.png">
     <script src="script.js"></script>
   </head>
   <body>
@@ -66,18 +67,17 @@
         </td>
       </tr>
     </table>
+    <div id="line0" class="line" style="top:15%;"></div>
+    <div id="line1" class="line" style="top:50%;"></div>
+    <div id="line2" class="line" style="top:83%;"></div>
+    <div id="line3" class="line vertikalLine" style="top: 50.5%; right: 33.5%;"></div>
+    <div id="line4" class="line vertikalLine" style="top: 50.5%; left: 0;"></div>
+    <div id="line5" class="line vertikalLine" style="top: 50.5%; left: 33.5%;"></div>
+    <div id="line6" class="line" style="top: 49%; left: 0; transform: rotate(45deg) scaleX(0.0);"></div>
+    <div id="line7" class="line" style="top: 49%; left: 0; transform: rotate(-45deg) scaleX(0.0);"></div>
 
-      <div id="line0" class="line" style="top:16.7%;"></div>
-      <div id="line1" class="line" style="top:50%;"></div>
-      <div id="line2" class="line" style="top:83%;"></div>
-      <div id="line3" class="line vertikalLine" style="top: 50%; left: -33.3%;"></div>
-      <div id="line4" class="line vertikalLine" style="top: 50%; left: 0;"></div>
-      <div id="line5" class="line vertikalLine" style="top: 50%; left: 33.3%;"></div>
-      <div id="line6" class="line" style="top: 50%; left: 0; transform: rotate(45deg) scaleX(0.0);"></div>
-      <div id="line7" class="line" style="top: 50%; left: 0; transform: rotate(-45deg) scaleX(0.0);"></div>
-    </div>
       <img id="gameover" class="gameoverImage d-none" src="img/gameover.png">
-      <button id="restart" class="restart d-none" onclick="restart()">Restart</button>
-    
+      <button id="restart" class="restart d-none" onclick="restart()">restart</button>
+    </div>
   </body>
 </html>
