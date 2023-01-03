@@ -1,0 +1,206 @@
+body {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 100vH;
+  background-color: rgb(0, 0, 0);
+  font-family: arial;
+  overflow: hidden;
+  margin: 0;
+}
+
+
+/*table*/
+td {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  border: 2px solid rgb(255, 255, 255);
+}
+td:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.116);
+}
+table {
+  position: relative;
+  border-collapse: collapse;
+}
+tr:first-child td {
+  border-top: 0;
+}
+tr td:first-child {
+  border-left: 0;
+}
+tr:last-child td {
+  border-bottom: 0;
+}
+tr td:last-child {
+  border-right: 0;
+}
+
+
+/* table images */
+.shape {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  height: 140px; 
+  width: 140px;
+}
+
+
+/* players */
+.allPlayers {
+  display: flex;
+  justify-content: center;
+  color: white;
+  width: 520px;
+  margin-top: 90px;
+  margin-bottom: 120px;
+}
+.player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.player img {
+  height: 80px;
+  width: 80px;
+  margin-bottom: 10px;
+}
+.playerInactive {
+  opacity: 0.2;
+}
+
+
+/* lines */
+.line {
+  height: 5px;
+  width: 520px;
+  background-color: rgba(150, 8, 8, 0.726);
+  position: absolute;
+  transform: scaleX(0.0);
+  transition: transform 200ms ease-in-out;
+  z-index: 2;
+}
+.vertikalLine {
+  transform: rotate(90deg) scaleX(0.0);
+}
+.tableAndLines {
+  position: relative;
+}
+
+
+/* gameover */
+.gameoverImage {
+  position: absolute;
+  top: -140px;
+  left: -150px;
+  height: 800px;
+  width: 800px;
+  z-index: 3;
+  animation: zoomIn 425ms ease-in-out;
+}
+@keyframes zoomIn {
+  from{
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* restart */
+.restart {
+  position: absolute;
+  left: -72.5px;
+  top: -53px;
+  height: 63px;
+  width: 256px;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+  transition: background-color 125ms ease-in-out;
+  transform: rotate(-34deg);
+  background-color: transparent;
+}
+.restart:hover {
+  background-color:rgba(35, 16, 210, 0.384);
+}
+
+
+.d-none {
+  display: none;
+}
+
+
+@media (max-width: 700px) {
+  td {
+    width: 110px;
+    height: 110px;
+  }
+  .gameoverImage {
+    top: -100px;
+    left: -100px;
+    height: 530px;
+    width: 530px;
+  }
+  .restart {
+    left: -50px;
+    top: -43px;
+    height: 43px;
+    width: 170px;
+  }
+  .shape {
+    left: 10px;
+    top: 10px;
+    height: 90px; 
+    width: 90px;
+  }
+  .line {
+    width: 330px;
+  }
+  .allPlayers {
+    width: 340px;
+  }
+}
+@media (max-width: 450px) {
+  td {
+    width: 60px;
+    height: 60px;
+  }
+  .gameoverImage {
+    top: 0000px;
+    left: 00px;
+    height: 230px;
+    width: 230px;
+  }
+  .restart {
+    left: -50px;
+    top: -43px;
+    height: 43px;
+    width: 170px;
+  }
+  .shape {
+    left: 12px;
+    top: 12px;
+    height: 40px; 
+    width: 40px;
+  }
+  .line {
+    width: 180px;
+    height: 3px;
+  }
+  .allPlayers {
+    width: 190px;
+  }
+}
